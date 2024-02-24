@@ -17,19 +17,19 @@ class _MenuPageState extends State<MenuPage> {
   List foodMenu = [
     //sandwich
     Food(
-      name: "Veg Cheese Grill Sandwich",
+      name: "Veg Cheese Grill",
       price: "120",
       imagePath: "lib/images/sandwich1.png",
       rating: "4.5",
     ),
     Food(
-      name: "Chilli Cheese Sandwich",
+      name: "Chilli Cheese",
       price: "120",
       imagePath: "lib/images/sandwich2.png",
       rating: "4.5",
     ),
     Food(
-      name: "Chicken Tikka Sandwich",
+      name: "Chicken Tikka",
       price: "150",
       imagePath: "lib/images/sandwich3.png",
       rating: "4.8",
@@ -96,15 +96,15 @@ class _MenuPageState extends State<MenuPage> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(
               decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  hintText: "Search here..."),
             ),
           ),
           const SizedBox(height: 25),
@@ -125,15 +125,63 @@ class _MenuPageState extends State<MenuPage> {
           const SizedBox(height: 10),
 
           Expanded(
-              child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: foodMenu.length,
-            itemBuilder: (context, index) => FoodTile(
-              food: foodMenu[index],
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: foodMenu.length,
+              itemBuilder: (context, index) => FoodTile(
+                food: foodMenu[index],
+              ),
             ),
-          )),
-
+          ),
+          const SizedBox(height: 25),
           //popular food
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            margin: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    //image
+                    Image.asset(
+                      "lib/images/tea1.png",
+                      height: 60,
+                    ),
+                    const SizedBox(width: 20),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //name
+                        Text(
+                          "Green Tea",
+                          style: GoogleFonts.dmSerifDisplay(
+                            fontSize: 18,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        //price
+                        Text(
+                          "\$40",
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                //heart icon
+                const Icon(
+                  Icons.favorite_outline,
+                  color: Colors.grey,
+                  size: 28,
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
