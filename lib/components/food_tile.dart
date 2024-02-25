@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gabbar_chai/models/food.dart';
+import 'package:gabbar_chai/themes/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodTile extends StatelessWidget {
@@ -13,7 +14,7 @@ class FoodTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: secondaryColor,
           borderRadius: BorderRadius.circular(20),
         ),
         margin: const EdgeInsets.only(left: 25.0),
@@ -27,11 +28,13 @@ class FoodTile extends StatelessWidget {
               food.imagePath,
               height: 140,
             ),
-
             // text
             Text(
               food.name,
-              style: GoogleFonts.dmSerifDisplay(fontSize: 20),
+              style: GoogleFonts.dmSerifDisplay(
+                fontSize: 20,
+                color: Colors.white,
+              ),
             ),
 
             // price + rating
@@ -42,10 +45,10 @@ class FoodTile extends StatelessWidget {
                 children: [
                   //price
                   Text(
-                    "\$${food.price}",
-                    style: TextStyle(
+                    "₹${food.price}",
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey[700],
+                      color: Colors.white,
                     ),
                   ),
 

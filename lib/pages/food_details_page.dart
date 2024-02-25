@@ -80,6 +80,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: secondaryColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -125,14 +126,15 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     widget.food.name,
                     style: GoogleFonts.dmSerifDisplay(
                       fontSize: 28,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 25),
                   //description
-                  Text(
+                  const Text(
                     "Description",
                     style: TextStyle(
-                      color: Colors.grey[900],
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
@@ -141,7 +143,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   Text(
                     "Indulge in the delightful harmony of flavors with our Veg Cheese Grill. This mouthwatering creation is a celebration of wholesome goodness and cheesy indulgence. Picture this: a medley of fresh, crisp vegetables, carefully selected for their vibrant colors and robust flavors, generously layered between slices of warm, toasted bread.",
                     style: TextStyle(
-                      color: Colors.grey[600],
+                      color: Colors.grey[400],
                       fontSize: 14,
                       height: 2,
                     ),
@@ -152,7 +154,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
           ),
           //price + quantity + add to cart button
           Container(
-            color: primaryColor,
+            color: secondaryColor,
             child: Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
@@ -162,7 +164,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "\$${widget.food.price}",
+                        "₹${widget.food.price}",
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

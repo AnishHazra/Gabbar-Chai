@@ -20,13 +20,13 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Shop>(
       builder: (context, value, child) => Scaffold(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.black,
         appBar: AppBar(
           foregroundColor: Colors.white,
           title: const Text(
             "My Cart",
           ),
-          backgroundColor: primaryColor,
+          backgroundColor: Colors.black,
         ),
         body: Column(
           children: [
@@ -60,7 +60,7 @@ class CartPage extends StatelessWidget {
                         ),
                       ),
                       subtitle: Text(
-                        foodPrice,
+                        "₹$foodPrice",
                         style: TextStyle(
                           color: Colors.grey[200],
                         ),

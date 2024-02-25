@@ -36,18 +36,19 @@ class _MenuPageState extends State<MenuPage> {
     final shop = context.read<Shop>();
     final foodMenu = shop.foodMenu;
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
+        leading: const Icon(
           Icons.menu,
-          color: Colors.grey[900],
+          color: Colors.white,
         ),
-        title: Text(
+        title: const Text(
           "Gabbar Chai",
           style: TextStyle(
-            color: Colors.grey[900],
+            color: Colors.white,
           ),
         ),
         actions: [
@@ -91,7 +92,7 @@ class _MenuPageState extends State<MenuPage> {
                   ],
                 ),
                 Image.asset(
-                  'lib/images/img1.png',
+                  'lib/images/tea5.png',
                   height: 100,
                 )
               ],
@@ -104,34 +105,33 @@ class _MenuPageState extends State<MenuPage> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(
               decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  hintText: "Search here..."),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: "Search here...",
+                hintStyle: const TextStyle(color: Colors.white),
+              ),
             ),
           ),
           const SizedBox(height: 25),
           //menu list
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
-              "Food Menu",
+              "Tea Menu",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.grey[800],
+                color: Colors.white,
                 fontSize: 20,
               ),
             ),
           ),
-
-          const SizedBox(height: 10),
-
+          const SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -146,7 +146,7 @@ class _MenuPageState extends State<MenuPage> {
           //popular food
           Container(
             decoration: BoxDecoration(
-              color: Colors.grey[100],
+              color: secondaryColor,
               borderRadius: BorderRadius.circular(20),
             ),
             margin: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
@@ -170,13 +170,14 @@ class _MenuPageState extends State<MenuPage> {
                           "Green Tea",
                           style: GoogleFonts.dmSerifDisplay(
                             fontSize: 18,
+                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(height: 10),
                         //price
-                        Text(
-                          "\$40",
-                          style: TextStyle(color: Colors.grey[700]),
+                        const Text(
+                          "₹40",
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
@@ -185,7 +186,7 @@ class _MenuPageState extends State<MenuPage> {
                 //heart icon
                 const Icon(
                   Icons.favorite_outline,
-                  color: Colors.grey,
+                  color: Colors.white,
                   size: 28,
                 )
               ],

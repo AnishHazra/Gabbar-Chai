@@ -2,26 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:gabbar_chai/models/food.dart';
 
 class Shop extends ChangeNotifier {
-  //food menu
+  //tea menu
   final List<Food> _foodMenu = [
-    //sandwich
+    //tea
     Food(
-      name: "Veg Cheese Grill",
-      price: "120",
-      imagePath: "lib/images/sandwich1.png",
+      name: "Special Green Tea",
+      price: "40",
+      imagePath: "lib/images/tea2.png",
       rating: "4.5",
     ),
     Food(
-      name: "Chilli Cheese",
-      price: "120",
-      imagePath: "lib/images/sandwich2.png",
-      rating: "4.5",
-    ),
-    Food(
-      name: "Chicken Tikka",
-      price: "150",
-      imagePath: "lib/images/sandwich3.png",
+      name: "Black Tea",
+      price: "30",
+      imagePath: "lib/images/tea3.png",
       rating: "4.8",
+    ),
+    Food(
+      name: "Red Tea",
+      price: "50",
+      imagePath: "lib/images/tea4.png",
+      rating: "4.8",
+    ),
+    Food(
+      name: "Yellow Tea",
+      price: "50",
+      imagePath: "lib/images/tea5.png",
+      rating: "4.7",
     ),
   ];
 
