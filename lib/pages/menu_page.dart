@@ -53,7 +53,9 @@ class _MenuPageState extends State<MenuPage> {
         actions: [
           //cart button
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/cartpage");
+            },
             icon: const Icon(Icons.shopping_cart),
           ),
         ],
