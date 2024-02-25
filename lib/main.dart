@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gabbar_chai/models/shop.dart';
 import 'package:gabbar_chai/pages/intro_page.dart';
 import 'package:gabbar_chai/pages/menu_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => Shop(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

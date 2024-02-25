@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gabbar_chai/components/button.dart';
 import 'package:gabbar_chai/components/food_tile.dart';
-import 'package:gabbar_chai/models/food.dart';
+import 'package:gabbar_chai/models/shop.dart';
+import 'package:gabbar_chai/pages/food_details_page.dart';
 import 'package:gabbar_chai/themes/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -14,30 +16,25 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   //food menu
-  List foodMenu = [
-    //sandwich
-    Food(
-      name: "Veg Cheese Grill",
-      price: "120",
-      imagePath: "lib/images/sandwich1.png",
-      rating: "4.5",
-    ),
-    Food(
-      name: "Chilli Cheese",
-      price: "120",
-      imagePath: "lib/images/sandwich2.png",
-      rating: "4.5",
-    ),
-    Food(
-      name: "Chicken Tikka",
-      price: "150",
-      imagePath: "lib/images/sandwich3.png",
-      rating: "4.8",
-    ),
-  ];
+
+  //Navigate to food item details page
+  void navigateToFoodDetails(int index) {
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FoodDetailsPage(
+          food: foodMenu[index],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final shop = context.read<Shop>();
+    final foodMenu = shop.foodMenu;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -49,8 +46,17 @@ class _MenuPageState extends State<MenuPage> {
         ),
         title: Text(
           "Gabbar Chai",
-          style: TextStyle(color: Colors.grey[900]),
+          style: TextStyle(
+            color: Colors.grey[900],
+          ),
         ),
+        actions: [
+          //cart button
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.shopping_cart),
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,6 +136,7 @@ class _MenuPageState extends State<MenuPage> {
               itemCount: foodMenu.length,
               itemBuilder: (context, index) => FoodTile(
                 food: foodMenu[index],
+                onTap: () => navigateToFoodDetails(index),
               ),
             ),
           ),
